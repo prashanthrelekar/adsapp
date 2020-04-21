@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const HomeScreen = props => {
+const CategoryScreen = props => {
   return (
     <View>
-      <Text>Ads App</Text>
+      <Text>Category App</Text>
     </View>
   );
 };
 
-export default HomeScreen;
+export default CategoryScreen;
