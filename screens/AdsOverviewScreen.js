@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const HomeScreen = props => {
+const AdsOverviewScreen = props => {
   return (
     <View>
       <Text>Ads App</Text>
@@ -9,4 +9,4 @@ const HomeScreen = props => {
   );
 };
 
-export default HomeScreen;
+export default AdsOverviewScreen;

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import HomeNavigator from './navigation/HomeNavigator';
+import AdsNavigator from './navigation/AdsNavigator';
 
 export default function App() {
   return (
-    <HomeNavigator />
+    <AdsNavigator />
   );
 } 

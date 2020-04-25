@@ -1,24 +1,27 @@
 import React from 'react';
-import { Button } from 'react-native';
+import { Platform, Button } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
-import HomeScreen from '../screens/HomeScreen';
+import AdsOverviewScreen from '../screens/AdsOverviewScreen';
 import CategoryScreen from '../screens/CategoryScreen';
+import HeaderButton from '../components/UI/HeaderButton';
 
 const Stack = createStackNavigator();
 
 const Drawer = createDrawerNavigator();
 
 function NavigatorOne({navigation}) {
+    console.log(navigation);
     return (
         <Stack.Navigator>
         <Stack.Screen
-            name="Home"
-            component={HomeScreen}
+            name="Ads overview"
+            component={AdsOverviewScreen}
             options={{
-                headerTitle: 'Ads home',
+                headerTitle: 'Ads overview',
                 headerStyle: {
                     backgroundColor: '#f4511e',
                 },
@@ -27,11 +30,13 @@ function NavigatorOne({navigation}) {
                     fontWeight: 'bold',
                 },
                 headerLeft: () => (
-                    <Button
-                      onPress={() => { navigation.toggleDrawer() }}
-                      title="Info"
-                      color="#fff"
+                    <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                    <Item
+                      title="Menu"
+                      iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
+                      onPress={() => { navigation.toggleDrawer(); }}
                     />
+                  </HeaderButtons>
                 ),
             }}
         />
@@ -67,15 +72,15 @@ function NavigatorTwo({navigation}) {
     );
 }
 
-const HomeNavigator = () => {
+const AdsNavigator = () => {
     return (
         <NavigationContainer>
             <Drawer.Navigator>
-                <Drawer.Screen name="Home" component={NavigatorOne} />
+                <Drawer.Screen name="Ads overview" component={NavigatorOne} />
                 <Drawer.Screen name="Category" component={NavigatorTwo} />
             </Drawer.Navigator>
         </NavigationContainer>
     );
 }
 
-export default HomeNavigator;
+export default AdsNavigator;
